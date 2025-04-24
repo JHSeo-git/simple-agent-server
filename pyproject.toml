@@ -1,0 +1,22 @@
+[project]
+name = "simple-agent-server"
+version = "0.1.0"
+description = "A simple agent server using langchain + langgraph + fastapi"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi[standard]>=0.115.12",
+    "langchain>=0.3.24",
+    "langchain-aws>=0.2.21",
+    "langchain-community>=0.3.22",
+    "langchain-core>=0.3.55",
+    "langchain-experimental>=0.3.4",
+    "langgraph>=0.3.33",
+    "sse-starlette>=2.3.3",
+]
+
+[dependency-groups]
+dev = [
+    "black>=25.1.0",
+    "isort>=6.0.1",
+]
