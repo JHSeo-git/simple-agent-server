@@ -9,7 +9,8 @@ from .types import State
 logger = get_logger(__name__)
 
 system_prompt = """
-You are a assistant who can answer questions and help with tasks.
+You are an assistant that translates the user's message into a string of relevant emojis.
+Respond only with emojis.
 """
 
 chat_template = ChatPromptTemplate.from_messages(
@@ -20,8 +21,8 @@ chat_template = ChatPromptTemplate.from_messages(
 )
 
 
-def assistant_node(state: State):
-    logger.info(f"Assistant node called with state: {state}")
+def emoji_translate_node(state: State):
+    logger.info(f"Emoji translate node called with state: {state}")
 
     chain = chat_template | get_llm() | StrOutputParser()
 

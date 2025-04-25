@@ -27,6 +27,12 @@ app.add_middleware(
 )
 
 
+# health check endpoint
+@app.get("/health")
+def health_check():
+    return {"status": "ok"}
+
+
 class AppRequest(BaseModel):
     message: str = Field(..., description="The message to send to the agent")
 
@@ -57,7 +63,7 @@ def app_endpoint(request: AppRequest, req: Request):
                         event="message",
                         data=json.dumps(
                             {
-                                "role": key,
+                                "node": key,
                                 "content": value,
                             },
                             ensure_ascii=False,
