@@ -47,7 +47,7 @@ def app_endpoint(request: AppRequest):
 
 
 @app.post("/sse")
-def app_endpoint(request: AppRequest, req: Request):
+def app_endpoint_sse(request: AppRequest, req: Request):
     graph = create_graph()
 
     try:
